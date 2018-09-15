@@ -1,0 +1,20 @@
+<div class="col-12">
+  <h3 style="text-align: center" >{{title}}</h3>
+  <div class="row">
+    <div class="col-6" style="margin:auto;max-width:400px;"> 
+      <!-- <select name="todolist" class="form-control" id="todolist" [(ngModel)]="activeListId">
+          <option *ngFor="let todoList of todoLists;let i = index" [value]="todoList.id" >{{todoList.listName}}</option>
+      </select> -->
+      <div class="col">{{activeListName}} <span (click)="showOptions = !showOptions" class="down arrow">&#9650;</span>
+      <div *ngIf="showOptions">
+          <div  style="padding:10px;" class="option" *ngFor="let todoList of todoLists;let i = index" (click)="getActiveList(i)">{{todoList.listName}}</div>
+          <div class="row" ><button class="btn btn-primary" (click)="addTodoList(newListName)">+</button>  <input type="text" [(ngModel)]="newListName" placeholder="Add a new List" class="col-3 col-sm-10 form-control"></div>
+        </div>
+      </div> 
+    <app-todolist [data]= "todoLists[activeListIndex]" ></app-todolist> 
+    <div class="row" ><button class="btn btn-primary" (click)="addTodoItem(newTodoItem)">+</button>  <input type="text" [(ngModel)]="newTodoItem" placeholder="Add a todo" class="col-3 col-sm-10 form-control"></div>
+    </div>
+  </div>
+  
+</div>
+
